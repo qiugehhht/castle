@@ -1,9 +1,8 @@
+#-*- coding:utf-8 -*-
 import urllib
 import urllib2
 import re
-import re
 import json
-
 
 values ={}
 values['page']=2
@@ -13,11 +12,11 @@ geturl = url + "?" + data
 print geturl
 request = urllib2.Request(geturl)
 response = urllib2.urlopen(request)
+response.encoding = 'utf-8'
 pattern = 'markers: (.*)<script type="text/javascript">'
 ss = response.read()
 with open("tem", "w") as tem_f:
     tem_f.write(ss)
-
 
 with open("tem", "r") as read_f:
     line = read_f.readline()
@@ -33,8 +32,6 @@ with open("tem", "r") as read_f:
         i = i+1
 
 
-
-
 hotel_name=[]
 pattern = re.compile('name')
 results_list = []
@@ -48,8 +45,8 @@ with open('tem2') as f:
             tem_data = line.split("\"")
             # print tem_data[1]
             i=i+1
-            print tem_data
+            print tem_data[1]
             results_list.append({'name':tem_data[1]})
 # print results_list
-with open("qiuge.json","w")as f:
-    json.dump(results_list,f)
+with open("qiuge.json","w",)as f:
+    json.dump(results_list,f,ensure_ascii=False, encoding='utf-8')

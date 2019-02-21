@@ -116,4 +116,3 @@ console.log(pages);
 })()
 
 module.exports = get;
-
