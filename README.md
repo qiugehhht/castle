@@ -1,3 +1,19 @@
+How to run this program:
+
+First run michelin.js and caslte.py
+
+Then run merge
+
+Finally run the PHP file
+
+
+
+
+
+
+
+
+
 # Castle
 
 > Sleep well with Relais & Châteaux
